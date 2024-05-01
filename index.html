@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>West Philippine Sea</title>
+
+    <!-- Google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: 'Albert Sans', sans-serif;
+            text-rendering: optimizeLegibility;
+            background-color: white;
+        }
+
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 3em 0;
+        }
+
+        a {
+            color: #0000EE;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        figure {
+            padding-bottom: 1.2em;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #666;
+        }
+
+        h1 {
+            font-family: 'Tinos', Georgia, serif;
+            font-size: 3em;
+            line-height: 1.1;
+            text-align: center;
+            font-weight: 500;
+            text-rendering: optimizeLegibility;
+        }
+
+        .subhead {
+            font-family: 'Albert Sans', sans-serif;
+            text-align: left;
+            margin-top: 0.5em;
+
+
+        }
+
+        .byline {
+            font-family: 'Albert Sans', sans-serif;
+            font-size: 1em;
+            text-align: left;
+            margin-top: 0.5em;
+            font-weight: 500;
+        }
+
+        .full-width {
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            margin: auto;
+
+        }
+
+        iframe,
+        img,
+        video {
+            max-width: 100%;
+            object-fit: cover;
+
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        ul {
+            margin: 0;
+            padding-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        iframe {
+            padding-bottom: 1.2em;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #fffbaf;
+            font-size: 0.85em;
+        }
+
+        /* margin on mobile */
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+    </style>
+
+
+
+    <!-- Scrolly stuff -->
+
+    <style>
+        .scrolly-container {
+            position: relative;
+            margin-bottom: 1.2em;
+        }
+
+        .sticky-thing {
+            position: sticky;
+            top: 0;
+            transform: translate(0px, 0px);
+            z-index: 0;
+            height: 100svh;
+            width: 100vw;
+            margin: 0;
+            overflow: hidden;
+            /* Center everything inside */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .sticky-thing>img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scrolly-container video {
+            position: absolute;
+            top: 0;
+            height: auto;
+            width: 100%;
+        }
+
+        .sticky-thing iframe {
+            position: absolute;
+            top: 0;
+            max-width: 100%;
+            min-height: 100vh;
+        }
+
+        .steps-container {
+            transform: translate3d(0, 0, 0);
+            position: relative;
+            padding: 0;
+            z-index: 10;
+            max-width: 35rem;
+            margin: 0 auto;
+            padding-bottom: 4em;
+        }
+
+        .step {
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50svh;
+            transform: translate(0px, 0px);
+        }
+
+        .step p {
+            text-align: left;
+        }
+
+        .step p:last-child {
+            padding: 0;
+        }
+
+        .step>* {
+            width: 700px;
+            margin-left: 1.3em;
+            margin-right: 1.3em;
+            text-align: center;
+            padding: 1.2em !important;
+            background-color: white;
+            opacity: 0.9;
+        }
+
+        .sticky-thing>canvas {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* When it's less than 700 pixels wide, do normal scrollytelling */
+
+        @media only screen and (min-width: 700px) {
+            .scrolly-container.side-by-side {
+                display: flex;
+            }
+
+            .scrolly-container.side-by-side>div {
+                flex-basis: 0;
+                flex-grow: 1;
+                flex-shrink: 1;
+                padding: 0.75em;
+            }
+
+            .scrolly-container.side-by-side .scrolly-overlay {
+                margin-top: 70vh;
+                order: 0;
+                /* Change these to adjust sizing options */
+                min-width: 15rem;
+                max-width: 20rem;
+            }
+
+            .scrolly-container.side-by-side .sticky-thing {
+                order: 1;
+                flex-grow: 2;
+            }
+        }
+    </style>
+    <link href="scrolly-styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>Inside the 14-Day of Gaza Solidarity Encampment in Columbia University</h1>
+            <div class="byline">
+                <p>By Katrina Ventura</p>
+            </div>
+        </div>
+    </div>
+
+    <figure><img src="./assets/base.png"></figure>
+
+    <div class="content">
+        <p>In the early morning of April 17, 2024 the Columbia community woke up to find green and blue tents pitched on
+            the South lawn of the university. The Gaza Solidarity Encampment, as student demonstrators called it, acted
+            as a space in the middle of Morningside campus where pro-Palestine students pressured the university to
+            divest from companies that profit from the Israeli occupation of Gaza.</p>
+
+        <p>For 14 days, the liberation zone stood as dialogues between students and administrators took place. More than
+            100 students had been arrested after Columbia University called in the police to empty the encampment. On
+            April 30, student demonstrators and police had its final standoff at Hamilton Hall, the same building
+            occupied during the 1968 anti-Vietnam war protests.</p>
+
+        <p>This data project provides a timeline of the movement on campus during those 14 days.</p>
+    </div>
+
+
+    <section id="scrolly-images" class="scrolly-container">
+        <div class="sticky-thing">
+            <img src="./assets/0417.png"> 
+        </div>
+        <div class="steps-container">
+            <div class="step" id="step1">
+                <p>Day 1: Hundreds of students set up tents on South Lawn beginning at around 4 a.m. on Wednesday morning,
+                    pledging to occupy the space until the University divests from companies with ties to Israel.
+                </p>
+            </div>
+            <div class="step" id="step2">
+                <p>Day 2: Over 100 individuals arrested by police after University President Minouche
+                    Shafik authorized a sweep the “Gaza Solidarity Encampment” on South Lawn at around 1
+                    p.m. on Thursday. The encampment was moved to the opposite lawn after the sweep.
+                </p>
+            </div>
+            <div class="step" id="step3">
+                <p>Day 3: Protesters had tents pitched as of early Friday morning, but were told by Public Safety to remove them and primarily sat on blankets spread across the lawn.</p>
+            </div>
+            <div class="step" id="step4">
+                <p>Day 4: The encampment remained on South Lawn two days after the police sweep, all individuals had been released from custody as of late Thursday evening.</p>
+            </div>
+            <div class="step" id="step5">
+                <p>Day 5: Students stationed along the perimeter of the lawn fence facing Lerner Hall intercepted admitted
+                    students and their parents as they passed by, asking them to join the encampment. Two signs hung
+                    on the north end of the lawn read “Admitted Students Enroll in Revolution.” Student
+                    demonstrators have slept on tarps for three nights on South Lawn without over-head cover.</p>
+            </div>
+            <div class="step" id="step6">
+                <p>Day 6: After three nights, student demonstrators erected tents on South Lawn for the first time since
+                    the police sweep.</p>
+            </div>
+            <!-- mischief -->
+            <div class="step" id="step7">
+                <p>Day 7: The University opted to hold classes virtually as student demonstrators remained on South Lawn. At around 2 p.m., hundreds of people participated in a faculty walkout in front of the University Low Steps and calling for the University to grant amnesty to student protesters and remove the
+                    interim demonstration policy, which established designated times and places for on-campus
+                    protests.
+                </p>
+            </div>
+            <div class="step" id="step8">
+                <p>Day 8: Columbia University President Minouche Shafik sent an email at 9:41 p.m. on Tuesday announcing a
+                    midnight
+                    deadline for negotiations with organizers of the “Gaza Solidarity Encampment,” before
+                    considering
+                    “alternative options” to clear South Lawn.</p>
+            </div>
+            <!-- subi -->
+            <div class="step" id="step9">
+                <p>Day 9: In a 4:08 a.m. email to the Columbia community, the University announced that it would continue
+                    conversations with student representatives for the next 48 hours after they made four
+                    commitments. These
+                    include removing a significant number of tents from the lawn, ensuring that only Columbia
+                    affiliates
+                    will remain in the encampment, complying with all New York Fire Department requirements, and
+                    taking
+                    steps to “make the encampment welcome to all” and to prohibit “discriminatory or harassing
+                    language.”.
+                </p>
+            </div>
+            <div class="step" id="step10">
+                <p>Day 10: Protesters joining the ‘United for Israel March’ head to the 116th Street and Amsterdam Avenue
+                    gates at around 6:30 pm on April 26, Friday.</p>
+            </div>
+            <div class="step" id="step11">
+                <p>Day 11: At the Morningside campus, CUID-only access remains in place until circumstances allow for broader access. </p>
+            </div>
+            <div class="step" id="step12">
+                <p>Day 12: At the Morningside campus, CUID-only access remains in place until circumstances allow for broader access. </p>
+            </div>
+            <div class="step" id="step13">
+                <p>Day 13: Columbia set a deadline for pro-Palestine protesters to vacate the encampment by 2 pm on Monday. Students have formed a picket line around the encampment.</p>
+            </div>
+            <div class="step" id="step14">
+                <p>Day 14: Student protestors occupied Hamilton Hall early Tuesday morning, the same building occupied during the 1968 anti-Vietnam war protests. Tents have been set up in front of Hamilton Hall.
+                Hundreds of NYPD officers swarmed campus on Tuesday evening, arresting dozens of protesters both inside and outside of Hamilton.
+                Columbia personnel disassembled the “Gaza Solidarity Encampment” at around 11:40 p.m. on Tuesday following the New York Police Department’s sweep of occupied Hamilton Hall. At 12:18 a.m. on Wednesday, the encampment was partially cleared.
+                </p>
+            </div>
+    </section>
+
+    <div class="footer">
+        <div class="content">
+            <p>©2024 Katrina Ventura</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        /*************
+        
+        This is the JavaScript that makes the scrolly work 
+        
+        *************/
+
+        /* 
+        This part attaches a scroll to the element with id="scrolly-images"    
+        */
+        (() => {
+            const scroller = scrollama()
+
+            scroller
+                .setup({
+                    parent: document.querySelector("#scrolly-images"),
+                    step: ".step",
+                    offset: 0.6,
+                    debug: false,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepout", { detail: { direction: direction } })
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                        element.previousElementSibling.dispatchEvent(event)
+                    }
+                })
+
+            window.addEventListener("resize", scroller.resize)
+        })()
+
+        /*
+        This part sets up your actions. In this case, it's changing the image in the scrolly container.
+        */
+        document.addEventListener("DOMContentLoaded", function () {
+            // JavaScript code here
+            d3.select("#step1").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0417.png"); // Change image for step 1
+            });
+
+            d3.select("#step2").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0418.png"); // Change image for step 2
+            });
+
+            // For the section with fiery images
+            d3.select("#step3").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0419.png"); // Change image for step 1
+            });
+
+            d3.select("#step4").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0420.png"); // Change image for step 2
+            });
+            // For the section with gaven images
+            d3.select("#step5").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0421.png"); // Change image for step 1
+            });
+
+            d3.select("#step6").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0422.png"); // Change image for step 2
+            });
+            // For the section with mischief images
+            d3.select("#step7").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0423.png"); // Change image for step 1
+            });
+
+            d3.select("#step8").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0424.png"); // Change image for step 2
+            });
+            // For the section with subi images
+            d3.select("#step9").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0425.png"); // Change image for step 1
+            });
+
+            d3.select("#step10").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0426.png"); // Change image for step 2
+            });
+
+            d3.select("#step11").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0427.png"); // Change image for step 2
+            });
+
+            d3.select("#step12").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0428.png"); // Change image for step 2
+            });
+
+            d3.select("#step13").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0429.png"); // Change image for step 2
+            });
+
+            d3.select("#step14").on('stepin', (e) => {
+                d3.select("#scrolly-images img").attr("src", "./assets/0430.png"); // Change image for step 2
+            });
+
+        });
+    </script>
+    <style>
+        /* Change this to adjust the padding between steps */
+        .step {
+            margin-bottom: 100vh;
+
+        }
+    </style>
+
+
+</body>
+
+</html>
